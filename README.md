@@ -30,3 +30,20 @@ MongoDB
 NestJS
 Docker
 TypeScript
+
+
+# Production build
+
+1. Crear el archivo .env.prod y configurar las variables de entorno correspondientes
+2. Crear la nueva imagen de docker ( Solo la primera vez y cuando se han realizado cambios en el proyecto )
+   ```
+   docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+   ```
+3. Levantar la aplicación ( si ya existe la imagen y no se han realizado cambios en el proyecto )
+   ```
+   docker-compose -f docker-compose.prod.yaml --env-file .env.prod up
+   ```
+4. Acceder a la aplicación
+   ```
+   http://localhost:3000/api/v2/seed
+   ```
